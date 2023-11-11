@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="EverSneaks.MAUI.Views.SneakersDetailsView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:EverSneaks.MAUI.Controls"
+    xmlns:evergine="clr-namespace:EverSneaks.MAUI.Evergine"
+    Title="SneakersDetailsView"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="TabViewStyle" TargetType="controls:TabView">
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+
+            <Style x:Key="BackgroundStyle" TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFill" />
+            </Style>
+
+            <Style x:Key="TopSectionStyle" TargetType="Grid">
+                <Setter Property="HeightRequest" Value="64" />
+                <Setter Property="Margin" Value="30" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+
+            <Style x:Key="UserStyle" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+
+            <Style x:Key="RoundBorderStyle" TargetType="Border">
+                <Setter Property="StrokeShape" Value="RoundRectangle 20" />
+                <Setter Property="StrokeThickness" Value="0" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Gray}" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="64" />
+                <Setter Property="Margin" Value="6, 0" />
+            </Style>
+
+            <Style x:Key="NumberStyle" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontFamily" Value="LatoRegular" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="Padding" Value="10" />
+            </Style>
+
+            <Style x:Key="PanelStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="20" />
+            </Style>
+
+            <Style x:Key="ColorPanelStyle" TargetType="StackLayout">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Spacing" Value="6" />
+            </Style>
+
+            <Style x:Key="ColorStyle" TargetType="Border">
+                <Setter Property="StrokeShape" Value="Ellipse" />
+                <Setter Property="WidthRequest" Value="24" />
+                <Setter Property="HeightRequest" Value="24" />
+                <Setter Property="StrokeThickness" Value="0" />
+                <Setter Property="Margin" Value="6" />
+            </Style>
+
+            <Style x:Key="SelectedColorImageStyle" TargetType="Image">
+                <Setter Property="Source" Value="check.png" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="9" />
+                <Setter Property="HeightRequest" Value="8" />
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="LatoRegular" />
+            </Style>
+
+            <Style x:Key="PriceStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="32" />
+            </Style>
+
+            <Style x:Key="AddCartStyle" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="{StaticResource Accent}" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="WidthRequest" Value="160" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 20" />
+                <Setter Property="Margin" Value="6,0" />
+            </Style>
+
+            <Style x:Key="AddCartTextStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+                <Setter Property="FontFamily" Value="LatoRegular" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
+            <Style x:Key="HeartStyle" TargetType="Image">
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="WidthRequest" Value="35" />
+                <Setter Property="Margin" Value="25" />
+            </Style>
+
+            <Style x:Key="NameStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontFamily" Value="RobotoBold" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="White">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*" />
+                <RowDefinition Height="40*" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <evergine:EvergineView x:Name="evergineView" Grid.Row="0" />
+
+            <Image
+                Grid.Row="0"
+                Source="black_heart.png"
+                Style="{StaticResource HeartStyle}" />
+
+            <Grid Grid.Row="1" Style="{StaticResource PanelStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    HorizontalTextAlignment="Start"
+                    Style="{StaticResource LabelStyle}"
+                    Text="Color:" />
+
+                <StackLayout Grid.Row="1" Style="{StaticResource ColorPanelStyle}">
+
+                    <Grid>
+                        <Border BackgroundColor="#181818" Style="{StaticResource ColorStyle}" />
+                        <Image
+                            x:Name="selectedGrayImage"
+                            IsVisible="True"
+                            Style="{StaticResource SelectedColorImageStyle}" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding ColorCommand}"
+                                CommandParameter="gray"
+                                Tapped="OnColorTapped" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <Grid>
+                        <Border BackgroundColor="#4585A9" Style="{StaticResource ColorStyle}" />
+                        <Image x:Name="selectedBlueImage" Style="{StaticResource SelectedColorImageStyle}" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding ColorCommand}"
+                                CommandParameter="blue"
+                                Tapped="OnColorTapped" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <Grid>
+                        <Border BackgroundColor="#EE4451" Style="{StaticResource ColorStyle}" />
+                        <Image x:Name="selectedRedImage" Style="{StaticResource SelectedColorImageStyle}" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding ColorCommand}"
+                                CommandParameter="red"
+                                Tapped="OnColorTapped" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <Grid>
+                        <Border BackgroundColor="#F29108" Style="{StaticResource ColorStyle}" />
+                        <Image x:Name="selectedOrangeImage" Style="{StaticResource SelectedColorImageStyle}" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding ColorCommand}"
+                                CommandParameter="orange"
+                                Tapped="OnColorTapped" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                </StackLayout>
+
+                <Label
+                    Grid.Row="2"
+                    HorizontalTextAlignment="Start"
+                    Style="{StaticResource LabelStyle}"
+                    Text="Size:" />
+
+                <StackLayout Grid.Row="3" Orientation="Horizontal">
+                    <Border Style="{StaticResource RoundBorderStyle}">
+                        <Label Style="{StaticResource NumberStyle}" Text="US 6" />
+                    </Border>
+
+                    <Border Style="{StaticResource RoundBorderStyle}">
+                        <Label Style="{StaticResource NumberStyle}" Text="US 7" />
+                    </Border>
+
+                    <Border Style="{StaticResource RoundBorderStyle}">
+                        <Label Style="{StaticResource NumberStyle}" Text="US 8" />
+                    </Border>
+
+                    <Border Style="{StaticResource RoundBorderStyle}">
+                        <Label Style="{StaticResource NumberStyle}" Text="US 10" />
+                    </Border>
+                </StackLayout>
+                <Grid Grid.Row="4" VerticalOptions="End">
+                    <Label Style="{StaticResource PriceStyle}" Text="$169.90" />
+                    <Border Style="{StaticResource AddCartStyle}">
+                        <Label Style="{StaticResource AddCartTextStyle}" Text="Add to Cart" />
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <controls:TabView Grid.Row="2" Style="{StaticResource TabViewStyle}" />
+
+        </Grid>
+
+        <Grid Style="{StaticResource TopSectionStyle}">
+            <Label Style="{StaticResource NameStyle}" Text="Air Jordan" />
+            <Image Source="user_picture.png" Style="{StaticResource UserStyle}" />
+        </Grid>
+    </Grid>
+</ContentPage>

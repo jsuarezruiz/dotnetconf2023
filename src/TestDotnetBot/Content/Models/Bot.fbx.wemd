@@ -1,0 +1,43 @@
+!Evergine.Assets.Exporters.ModelMetaFile,Evergine.Assets
+Id: 74496299-9ec7-4ef0-bf87-2c9b7589d8f0
+Clips: []
+DefaultProfile:
+  ExcludeAsset: false
+  Name: null
+  Platform: Undefined
+ExportAnimations: true
+ExportAsRaw: false
+GenerateTangentSpace: true
+Profiles: {}
+Source:
+  Header:
+    Id: 7eb6df19-0143-42d5-8b03-3cd4ee1d458e
+    IsCompressed: true
+  LastModified: 0001-01-01T00:00:00.0000000
+  ModelInfo:
+    Id: 9df50cfa-752f-4b4e-8be7-5abaa612df21
+    AnimationTracks: []
+    EmbeddedResources: null
+    Materials:
+      - Item1: 'Material #51'
+        Item2: 12f5cfdf-7cc1-4957-bdef-bc54ca46f544
+      - Item1: 'Material #48'
+        Item2: c588b718-c9b8-4f19-85c8-eac83ac5167e
+      - Item1: 'Material #50'
+        Item2: edcc365f-94f0-4f2a-a89d-b0ab2ef885b1
+      - Item1: 'Material #49'
+        Item2: f37e55aa-855b-4516-8c46-0ac7df0c6299
+      - Item1: 'Material #47'
+        Item2: b479a87d-5d4a-441b-9233-db78293b0f50
+    Nodes:
+      - RootNode
+      - dotnetBot
+      - dotnetBot.Belt
+      - dotnetBot.Button
+      - dotnetBot.Iris
+      - dotnetBot.Eyes
+      - dotnetBot.Head
+      - dotnetBot.Arms
+      - dotnetBot.Antenna
+      - dotnetBot.Spring
+SwapWindingOrder: false

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="EverSneaks.MAUI.Views.GalleryView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:EverSneaks.MAUI.Controls"
+    Title="GalleryView"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="TabViewStyle" TargetType="controls:TabView">
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+
+            <Style x:Key="BackgroundStyle" TargetType="Image">
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="Aspect" Value="AspectFill"/>
+            </Style>
+
+            <Style x:Key="TopSectionStyle" TargetType="Grid">
+                <Setter Property="HeightRequest" Value="56" />
+                <Setter Property="Margin" Value="30" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+
+            <Style x:Key="HomeLogoStyle" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Margin" Value="0,12" />
+            </Style>
+
+            <Style x:Key="UserStyle" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+
+            <Style x:Key="NameStyle" TargetType="Label">
+                <Setter Property="Margin" Value="15" />
+                <Setter Property="FontFamily" Value="RobotoBold" />
+                <Setter Property="FontSize" Value="20" />
+            </Style>
+
+            <Style x:Key="HeartStyle" TargetType="Image">
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="WidthRequest" Value="30" />
+                <Setter Property="Margin" Value="15" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="Black">
+
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding GoToDetailCommand}" />
+        </Grid.GestureRecognizers>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1.25*" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+
+            <Image
+                Grid.Row="0"
+                Source="gallery_background.png"
+                Style="{StaticResource BackgroundStyle}" />
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="0">
+
+                    <Image Aspect="AspectFill" Source="sneakers1.png" />
+
+                    <Label Style="{StaticResource NameStyle}" Text="Black" />
+
+                    <Image Source="black_heart.png" Style="{StaticResource HeartStyle}" />
+
+                </Grid>
+
+
+                <Grid Grid.Row="0" Grid.Column="1">
+
+                    <Image Aspect="AspectFill" Source="sneakers2.png" />
+
+                    <Label
+                        Style="{StaticResource NameStyle}"
+                        Text="Blue"
+                        TextColor="{StaticResource White}" />
+
+                    <Image Source="white_heart.png" Style="{StaticResource HeartStyle}" />
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="0">
+
+                    <Image Aspect="AspectFill" Source="sneakers3.png" />
+
+                    <Label
+                        Style="{StaticResource NameStyle}"
+                        Text="Red"
+                        TextColor="{StaticResource White}" />
+
+                    <Image Source="white_heart.png" Style="{StaticResource HeartStyle}" />
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="1">
+
+                    <Image Aspect="AspectFill" Source="sneakers4.png" />
+
+                    <Label
+                        Style="{StaticResource NameStyle}"
+                        Text="Yellow"
+                        TextColor="{StaticResource White}" />
+
+                    <Image Source="white_heart.png" Style="{StaticResource HeartStyle}" />
+                </Grid>
+
+            </Grid>
+
+            <controls:TabView Grid.Row="2" Style="{StaticResource TabViewStyle}" />
+        </Grid>
+
+        <Grid Style="{StaticResource TopSectionStyle}">
+            <Image Source="eversneaks_logo.png" Style="{StaticResource HomeLogoStyle}" />
+            <Image Source="user_picture.png" Style="{StaticResource UserStyle}" />
+        </Grid>
+
+    </Grid>
+</ContentPage>
